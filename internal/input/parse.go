@@ -15,28 +15,34 @@ func getCount[T comparable](slice []T, match T) uint {
 	}
 	return count
 }
-
-func GetRows(path string) [][]byte {
+func GetFile(path string) []byte {
 	f, err := os.ReadFile(path)
 	if err != nil {
 		panic(err)
 	}
+	return f
+}
 
-	fileLen := len(f)
-	rows := make([][]byte, 0, getCount(f, newLine))
+func GetRows(path string) [][]byte {
+	return Seperate(GetFile(path), newLine)
+}
+
+func Seperate(input []byte, seperator byte) [][]byte {
+	fileLen := len(input)
+	rows := make([][]byte, 0, getCount(input, seperator))
 
 	var lastIdx int
 	for idx := range fileLen {
-		if f[idx] != newLine {
+		if input[idx] != seperator {
 			continue
 		}
 
-		rows = append(rows, f[lastIdx:idx])
+		rows = append(rows, input[lastIdx:idx])
 		lastIdx = idx + 1
 	}
 
 	if lastIdx < fileLen {
-		rows = append(rows, f[lastIdx:])
+		rows = append(rows, input[lastIdx:])
 	}
 
 	return rows
