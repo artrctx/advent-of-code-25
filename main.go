@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	d2.Part1()
-	// d2.Part2()
+	// d2.Part1()
+	d2.Part2()
 }
