@@ -1,6 +1,6 @@
 run:
 	@go run main.go
-start-date:
+start:
 	mkdir internal/d${date} && \
 	touch internal/d${date}/d${date}.go && \
 	touch internal/d${date}/input.txt && \
