@@ -6,7 +6,7 @@ import (
 
 var newLine byte = 10
 
-func getCount[T comparable](slice []T, match T) uint {
+func GetCount[T comparable](slice []T, match T) uint {
 	var count uint
 	for _, v := range slice {
 		if v == match {
@@ -29,7 +29,7 @@ func GetRows(path string) [][]byte {
 
 func Seperate(input []byte, seperator byte) [][]byte {
 	fileLen := len(input)
-	rows := make([][]byte, 0, getCount(input, seperator))
+	rows := make([][]byte, 0, GetCount(input, seperator))
 
 	var lastIdx int
 	for idx := range fileLen {

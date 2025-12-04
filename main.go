@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/artrctx/advent-of-code-25/internal/d3"
+	"github.com/artrctx/advent-of-code-25/internal/d4"
 )
 
 func main() {
-	d3.Part2()
+	d4.Part2()
 }

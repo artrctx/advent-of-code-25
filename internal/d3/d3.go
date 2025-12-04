@@ -8,7 +8,7 @@ import (
 )
 
 // 0 in utf8
-var ZERO byte = 48
+var ZERO byte = '0'
 
 func Part1() {
 	banks := input.GetRows("./internal/d3/input.txt")
