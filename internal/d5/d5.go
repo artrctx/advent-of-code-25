@@ -25,9 +25,7 @@ func prepIngridientRangeSet(rngs [][]byte) [][2]int {
 		i1, i2 := input.Seperate(a, '-'), input.Seperate(b, '-')
 		aNum, _ := strconv.Atoi(string(i1[0]))
 		bNum, _ := strconv.Atoi(string(i2[0]))
-		a2Num, _ := strconv.Atoi(string(i1[1]))
-		b2Num, _ := strconv.Atoi(string(i2[1]))
-		return cmp.Or(cmp.Compare(aNum, bNum), -cmp.Compare(a2Num, b2Num))
+		return cmp.Compare(aNum, bNum)
 	})
 
 	for _, v := range rngs {
@@ -81,10 +79,13 @@ func Part1() {
 	fmt.Printf("D5 Part 1: %v\n", answer)
 }
 
-// 350556583134447 too low
 func Part2() {
 	rngs, ids := getIngredientIdsAndRange(input.GetRows("./internal/d5/input.txt"))
 	rngSet := prepIngridientRangeSet(rngs)
+	fmt.Println("count", len(rngSet))
+	for _, r := range rngSet {
+		fmt.Println(r)
+	}
 	var answer int
 	loggedSet := make(map[[2]int]struct{}, len(rngSet))
 	for _, id := range ids {
