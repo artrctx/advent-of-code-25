@@ -45,20 +45,24 @@ func Part2() {
 	beams := rows[0]
 	for idx := 2; idx < rLen; idx += 2 {
 		for bIdx, b := range beams {
-			if b != 'S' || rows[idx][bIdx] == '.' {
+			if b == '.' {
+				continue
+			}
+
+			if rows[idx][bIdx] == '.' {
 				continue
 			}
 
 			beams[bIdx] = '.'
 			if bIdx > 0 {
 				beams[bIdx-1] = 'S'
+				answer++
 			}
 
 			if bIdx < rLen-1 {
 				beams[bIdx+1] = 'S'
+				answer++
 			}
-
-			answer++
 
 		}
 	}
