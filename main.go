@@ -1,8 +1,7 @@
 package main
 
-import "github.com/artrctx/advent-of-code-25/internal/d7"
+import "github.com/artrctx/advent-of-code-25/internal/d8"
 
 func main() {
-	d7.Part1()
-	d7.Part2()
+	d8.Part1()
 }
